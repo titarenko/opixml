@@ -1,0 +1,36 @@
+{
+  "name": "opixml",
+  "version": "0.1.0",
+  "description": "Opinionated XML generator and parser",
+  "main": "index.js",
+  "scripts": {
+    "test": "istanbul cover node_modules/mocha/bin/_mocha -- tests && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/titarenko/opixml.git"
+  },
+  "keywords": [
+    "xml",
+    "generator",
+    "parser"
+  ],
+  "author": "Constantin Titarenko",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/titarenko/opixml/issues"
+  },
+  "homepage": "https://github.com/titarenko/opixml#readme",
+  "dependencies": {
+    "bluebird": "^2.10.2",
+    "js2xmlparser": "^1.0.0",
+    "lodash": "^3.10.1",
+    "xml2js": "^0.4.12"
+  },
+  "devDependencies": {
+    "coveralls": "^2.11.4",
+    "istanbul": "^0.3.21",
+    "mocha": "^2.3.3",
+    "should": "^7.1.0"
+  }
+}
