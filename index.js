@@ -9,22 +9,27 @@ module.exports = {
 	fromXml: fromXml
 };
 
-function toXml (obj) {
+function toXml (obj, opts) {
 	var node = toXmlNode(obj);
 	var key = _(node).keys().first();
 
-	var xml = js2xml(key, node[key], {
-		declaration: { include: false },
+	opts = _.extend({}, opts, {
 		attributeString: '$'
 	});
+	opts = _.defaults(opts, {
+		declaration: { include: false }
+	});
+
+	var xml = js2xml(key, node[key], opts);
 
 	return Promise.resolve(xml);
 }
 
-function fromXml (xml) {
-	return parseXml(xml, {
+function fromXml (xml, opts) {
+	opts = _.defaults(opts || {}, {
 		explicitArray: false
-	}).then(fromXmlNode);
+	});
+	return parseXml(xml, opts).then(fromXmlNode);
 }
 
 function toXmlNode (obj) {

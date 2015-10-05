@@ -10,7 +10,7 @@ npm i opixml --save
 
 ## Description
 
-Under the hood it's built on top of `xml2js` and `js2xmlparser`, but has unified interface and certain rules of mapping JS to XML and vice versa.
+Under the hood it's built on top of `xml2js` and `js2xmlparser`, but has unified interface and certain rules of mapping JS to XML and vice versa. You can pass options object for each library in appropriate method as second argument.
 
 Mapping rules:
 - everything that is scalar is interperted as attribute
