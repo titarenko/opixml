@@ -38,7 +38,8 @@ function toXmlNode (obj) {
 		if (_.isArray(value) && !_.isString(value)) {
 			result[name] = value.map(toXmlNode);
 		} else if (_.isObject(value)) {
-			result[name] = toXmlNode(value);
+			var keys = _.keys(value);
+			result[name] = keys.length == 1 && keys[0] == '_' ? value['_'] : toXmlNode(value);
 		} else {
 			attrs[name] = value;
 		}

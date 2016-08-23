@@ -20,6 +20,35 @@ describe('opixml', function () {
 				done();
 			}).catch(done);
 		});
+		it('it should handle example from readme correctly', function (done) {
+			opixml.toXml({ 
+				root: { 
+					attr: '10', 
+					subnode: { attr: 'foo' },
+					othernode: { _: 'value' },
+					container: {
+						item: [
+							{ one: { _: '1' } },
+							{ two: { value: '2' } }
+						]
+					}
+				}
+			}).then(function (xml) {
+				xml.should.eql('<root attr="10">\n\
+	<subnode attr="foo"/>\n\
+	<othernode>value</othernode>\n\
+	<container>\n\
+		<item>\n\
+			<one>1</one>\n\
+		</item>\n\
+		<item>\n\
+			<two value="2"/>\n\
+		</item>\n\
+	</container>\n\
+</root>')
+				done()
+			}).catch(done)
+		})
 	});
 	describe('fromXml', function () {
 		it('should convert XML to JS object', function (done) {

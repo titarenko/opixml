@@ -1,10 +1,10 @@
 {
   "name": "opixml",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Opinionated XML generator and parser",
   "main": "index.js",
   "scripts": {
-    "test": "istanbul cover node_modules/mocha/bin/_mocha -- tests && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+    "test": "istanbul cover _mocha -- tests && cat ./coverage/lcov.info | coveralls.js"
   },
   "repository": {
     "type": "git",

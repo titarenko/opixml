@@ -2,6 +2,8 @@
 
 Opinionated XML generator and parser.
 
+[![Build Status](https://travis-ci.org/titarenko/opixml.svg?branch=master)](https://travis-ci.org/titarenko/opixml)
+
 ## Installation
 
 ```sh
@@ -22,8 +24,15 @@ Mapping rules:
 var obj = { 
 	root: { 
 		attr: '10', 
-		subnode: { attr: 'foo '} 
-	} 
+		subnode: { attr: 'foo' },
+		othernode: { _: 'value' },
+		container: {
+			item: [
+				{ one: { _: '1' } },
+				{ two: { value: '2' } }
+			]
+		}
+	}
 };
 opixml.toXml(obj).then(console.log);
 ```
@@ -31,6 +40,15 @@ opixml.toXml(obj).then(console.log);
 ```xml
 <root attr="10">
 	<subnode attr="foo"/>
+	<othernode>value</othernode>
+	<container>
+		<item>
+			<one>1</one>
+		</item>
+		<item>
+			<two value="2"/>
+		</item>
+	</container>
 </root>
 ```
 
