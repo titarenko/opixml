@@ -3,6 +3,7 @@
 Opinionated XML generator and parser.
 
 [![Build Status](https://travis-ci.org/titarenko/opixml.svg?branch=master)](https://travis-ci.org/titarenko/opixml)
+[![Coverage Status](https://coveralls.io/repos/github/titarenko/opixml/badge.svg?branch=master)](https://coveralls.io/github/titarenko/opixml?branch=master)
 
 ## Installation
 
