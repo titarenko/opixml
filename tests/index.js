@@ -31,6 +31,12 @@ describe('opixml', function () {
 							{ one: { _: '1' } },
 							{ two: { value: '2' } }
 						]
+					},
+					container2: {
+						item: [
+							{ _: 1 },
+							{ _: 2 }
+						]
 					}
 				}
 			}).then(function (xml) {
@@ -45,6 +51,10 @@ describe('opixml', function () {
 			<two value="2"/>\n\
 		</item>\n\
 	</container>\n\
+	<container2>\n\
+		<item>1</item>\n\
+		<item>2</item>\n\
+	</container2>\n\
 </root>')
 				done()
 			}).catch(done)

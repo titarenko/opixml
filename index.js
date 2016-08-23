@@ -40,6 +40,8 @@ function toXmlNode (obj) {
 		} else if (_.isObject(value)) {
 			var keys = _.keys(value);
 			result[name] = keys.length == 1 && keys[0] == '_' ? value['_'] : toXmlNode(value);
+		} else if (name == '_') {
+			result['#'] = value
 		} else {
 			attrs[name] = value;
 		}

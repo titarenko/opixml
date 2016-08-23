@@ -18,6 +18,7 @@ Under the hood it's built on top of `xml2js` and `js2xmlparser`, but has unified
 Mapping rules:
 - everything that is scalar is interperted as attribute
 - everything that is non-scalar is interpreted as node
+- with only one exception: if something is an object with one and only one scalar property `_`, then it will be treated as a value-node (see example)
 
 ## Example
 
@@ -31,6 +32,12 @@ var obj = {
 			item: [
 				{ one: { _: '1' } },
 				{ two: { value: '2' } }
+			]
+		},
+		container2: {
+			item: [
+				{ _: 1 },
+				{ _: 2 }
 			]
 		}
 	}
@@ -50,6 +57,10 @@ opixml.toXml(obj).then(console.log);
 			<two value="2"/>
 		</item>
 	</container>
+	<container2>
+		<item>1</item>
+		<item>2</item>
+	</container2>
 </root>
 ```
 
